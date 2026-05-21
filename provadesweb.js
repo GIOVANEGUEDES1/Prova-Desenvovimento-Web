@@ -1,132 +1,284 @@
-// Variável que controla se está no modo herói
-// false = modo normal
-// true = modo herói
 
 let sc_giovane_modoHeroi = false;
 
 
 
-// Função executada ao clicar no botão
 function sc_giovane_transformar(){
+  
+    const nome = document.getElementById("sc_giovane_nome");
+/* =========================================
+   VARIÁVEL DE CONTROLE
+========================================= */
 
-    // Pega o elemento do nome pelo ID
+/* 
+   Essa variável guarda o estado atual da página.
+   false = modo normal
+   true = modo herói
+*/
+let sc_giovane_modoHeroi = false;
+
+
+
+/* =========================================
+   FUNÇÃO PRINCIPAL
+========================================= */
+
+/* 
+   Essa função é chamada quando o botão é clicado.
+   Ela alterna entre:
+   - modo normal
+   - modo herói
+*/
+function sc_giovane_transformar(){
+  
+
+    /* =========================================
+       PEGANDO ELEMENTOS DO HTML
+    ========================================= */
+
+    /* Elemento do nome */
     const nome = document.getElementById("sc_giovane_nome");
 
-    // Pega a descrição
+    /* Elemento da descrição */
     const descricao = document.getElementById("sc_giovane_descricao");
 
-    // Pega a idade
+    /* Elemento da idade */
     const idade = document.getElementById("sc_giovane_idade");
 
-    // Pega o time
+    /* Elemento do time */
     const time = document.getElementById("sc_giovane_time");
 
-    // Pega a comida favorita
+    /* Elemento da comida favorita */
     const comida = document.getElementById("sc_giovane_comida");
 
-    // Pega o hobby
+    /* Elemento do hobby */
     const hobby = document.getElementById("sc_giovane_hobby");
 
-    // Pega o filme favorito
+    /* Elemento do filme favorito */
     const filme = document.getElementById("sc_giovane_filme");
 
-    // Pega a imagem
+    /* Elemento da foto */
     const foto = document.getElementById("sc_giovane_foto");
 
-    // Pega o botão
+    /* Botão de transformar */
     const botao = document.getElementById("sc_giovane_btn_transformar");
 
-    // Seleciona TODOS os cards com essa classe
+    /* Seleciona todos os cards */
     const cards = document.querySelectorAll(".sc_giovane_card");
 
 
-    // Verifica se NÃO está no modo herói
+    /* =========================================
+       VERIFICA SE ESTÁ NO MODO NORMAL
+    ========================================= */
+
+    /*
+       Se a variável for false,
+       significa que está no modo normal.
+    */
     if(sc_giovane_modoHeroi === false){
 
-        // Troca o nome
+
+        /* =========================================
+           ALTERANDO OS DADOS PARA MODO HERÓI
+        ========================================= */
+
+        /* Troca o nome */
         nome.innerHTML = "Homem-Aranha";
 
-        // Troca a descrição
+        /* Troca a descrição */
         descricao.innerHTML =
         "Herói da Marvel com força sobre-humana, sentidos aguçados e habilidade de escalar paredes.";
 
-        // Troca a idade
+        /* Troca a idade */
         idade.innerHTML = "26 anos";
 
-        // Troca o time
+        /* Troca o time */
         time.innerHTML = "Vingadores";
 
-        // Troca a comida
+        /* Troca a comida favorita */
         comida.innerHTML = "Comida Japonesa";
 
-        // Troca o hobby
+        /* Troca o hobby */
         hobby.innerHTML = "Salvar Nova York";
 
-        // Troca o filme
+        /* Troca o filme favorito */
         filme.innerHTML = "Spider-Man: No Aranhaverso";
 
-        // Troca a imagem
+        /* Troca a imagem */
         foto.src = "heroi.jpg";
 
-        // Troca o texto do botão
+        /* Troca o texto do botão */
         botao.innerHTML = "Voltar";
 
-        // Adiciona uma classe CSS no body
+
+        /* =========================================
+           ADICIONANDO CLASSES CSS
+        ========================================= */
+
+        /* 
+           Adiciona uma classe no body
+           para mudar o fundo da página
+        */
         document.body.classList.add("sc_giovane_heroi");
 
-        // Percorre todos os cards
+
+        /* 
+           Percorre todos os cards
+           e adiciona a classe de herói
+        */
         cards.forEach(function(card){
 
-            // Adiciona classe de herói em cada card
             card.classList.add("sc_giovane_card_heroi");
 
         });
 
-        // Ativa o modo herói
+
+        /* =========================================
+           ALTERA O ESTADO PARA HERÓI
+        ========================================= */
+
         sc_giovane_modoHeroi = true;
+
 
     }else{
 
-        // Volta o nome original
+
+        /* =========================================
+           VOLTANDO AO MODO NORMAL
+        ========================================= */
+
+        /* Restaura o nome */
         nome.innerHTML = "Giovane";
 
-        // Volta a descrição original
+        /* Restaura a descrição */
         descricao.innerHTML =
         "Sou estudante de desenvolvimento web e gosto de tecnologia, jogos e futebol.";
 
-        // Volta idade
+        /* Restaura a idade */
         idade.innerHTML = "26 anos";
 
-        // Volta time
+        /* Restaura o time */
         time.innerHTML = "Corinthians";
 
-        // Volta comida
+        /* Restaura a comida favorita */
         comida.innerHTML = "Churrasco";
 
-        // Volta hobby
+        /* Restaura o hobby */
         hobby.innerHTML = "Jogar videogame";
 
-        // Volta filme
+        /* Restaura o filme favorito */
         filme.innerHTML = "Interestelar";
 
-        // Volta imagem original
+        /* Restaura a foto original */
         foto.src = "eu.jpeg";
 
-        // Volta texto do botão
+        /* Restaura o texto do botão */
         botao.innerHTML = "Transformar!";
 
-        // Remove classe do body
+
+        /* =========================================
+           REMOVENDO CLASSES CSS
+        ========================================= */
+
+        /* Remove o modo herói do body */
         document.body.classList.remove("sc_giovane_heroi");
 
-        // Percorre todos os cards
+
+        /* Remove o estilo herói de todos os cards */
         cards.forEach(function(card){
 
-            // Remove classe de herói
             card.classList.remove("sc_giovane_card_heroi");
 
         });
 
-        // Desativa modo herói
+
+        /* =========================================
+           ALTERA O ESTADO PARA NORMAL
+        ========================================= */
+
+        sc_giovane_modoHeroi = false;
+    }
+
+}
+    const descricao = document.getElementById("sc_giovane_descricao");
+
+    const idade = document.getElementById("sc_giovane_idade");
+
+    const time = document.getElementById("sc_giovane_time");
+
+    const comida = document.getElementById("sc_giovane_comida");
+
+    const hobby = document.getElementById("sc_giovane_hobby");
+
+    const filme = document.getElementById("sc_giovane_filme");
+
+    const foto = document.getElementById("sc_giovane_foto");
+
+    const botao = document.getElementById("sc_giovane_btn_transformar");
+
+    const cards = document.querySelectorAll(".sc_giovane_card");
+
+
+    if(sc_giovane_modoHeroi === false){
+
+        nome.innerHTML = "Homem-Aranha";
+
+        descricao.innerHTML =
+        "Herói da Marvel com força sobre-humana, sentidos aguçados e habilidade de escalar paredes.";
+
+        idade.innerHTML = "26 anos";
+
+        time.innerHTML = "Vingadores";
+
+        comida.innerHTML = "Comida Japonesa";
+
+        hobby.innerHTML = "Salvar Nova York";
+
+        filme.innerHTML = "Spider-Man: No Aranhaverso";
+
+        foto.src = "heroi.jpg";
+
+        botao.innerHTML = "Voltar";
+
+        document.body.classList.add("sc_giovane_heroi");
+
+        cards.forEach(function(card){
+
+            card.classList.add("sc_giovane_card_heroi");
+
+        });
+
+        sc_giovane_modoHeroi = true;
+
+    }else{
+
+        nome.innerHTML = "Giovane";
+
+        descricao.innerHTML =
+        "Sou estudante de desenvolvimento web e gosto de tecnologia, jogos e futebol.";
+
+        idade.innerHTML = "26 anos";
+
+        time.innerHTML = "Corinthians";
+
+        comida.innerHTML = "Churrasco";
+
+        hobby.innerHTML = "Jogar videogame";
+
+        filme.innerHTML = "Interestelar";
+
+        foto.src = "eu.jpeg";
+
+        botao.innerHTML = "Transformar!";
+
+        document.body.classList.remove("sc_giovane_heroi");
+
+        cards.forEach(function(card){
+
+            card.classList.remove("sc_giovane_card_heroi");
+
+        });
+
         sc_giovane_modoHeroi = false;
     }
 
