@@ -1,249 +1,133 @@
-body{
+// Variável que controla se está no modo herói
+// false = modo normal
+// true = modo herói
 
-    margin: 0;
+let sc_giovane_modoHeroi = false;
 
-    padding: 40px;
 
-    font-family: Arial, Helvetica, sans-serif;
 
-    display: flex;
+// Função executada ao clicar no botão
+function sc_giovane_transformar(){
 
-    flex-direction: column;
+    // Pega o elemento do nome pelo ID
+    const nome = document.getElementById("sc_giovane_nome");
 
-    align-items: center;
+    // Pega a descrição
+    const descricao = document.getElementById("sc_giovane_descricao");
 
-    background: linear-gradient(to right, #dbeafe, #f0f9ff);
+    // Pega a idade
+    const idade = document.getElementById("sc_giovane_idade");
 
-    transition: background 0.5s ease, color 0.5s ease;
+    // Pega o time
+    const time = document.getElementById("sc_giovane_time");
 
-    font-size: 18px;
-}
+    // Pega a comida favorita
+    const comida = document.getElementById("sc_giovane_comida");
 
+    // Pega o hobby
+    const hobby = document.getElementById("sc_giovane_hobby");
 
-.sc_giovane_container{
+    // Pega o filme favorito
+    const filme = document.getElementById("sc_giovane_filme");
 
-    display: grid;
+    // Pega a imagem
+    const foto = document.getElementById("sc_giovane_foto");
 
-    grid-template-columns: repeat(2, 200px);
+    // Pega o botão
+    const botao = document.getElementById("sc_giovane_btn_transformar");
 
-    gap: 60px;
+    // Seleciona TODOS os cards com essa classe
+    const cards = document.querySelectorAll(".sc_giovane_card");
 
-    justify-content: center;
 
-    width: 100%;
+    // Verifica se NÃO está no modo herói
+    if(sc_giovane_modoHeroi === false){
 
-    max-width: 800px;
-}
+        // Troca o nome
+        nome.innerHTML = "Homem-Aranha";
 
+        // Troca a descrição
+        descricao.innerHTML =
+        "Herói da Marvel com força sobre-humana, sentidos aguçados e habilidade de escalar paredes.";
 
-.sc_giovane_card{
+        // Troca a idade
+        idade.innerHTML = "26 anos";
 
-    background: white;
+        // Troca o time
+        time.innerHTML = "Vingadores";
 
-    padding: 20px;
+        // Troca a comida
+        comida.innerHTML = "Comida Japonesa";
 
-    border-radius: 18px;
+        // Troca o hobby
+        hobby.innerHTML = "Salvar Nova York";
 
-    text-align: center;
+        // Troca o filme
+        filme.innerHTML = "Spider-Man: No Aranhaverso";
 
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.12);
+        // Troca a imagem
+        foto.src = "heroi.jpg";
 
-    transition: transform 0.3s ease;
-}
+        // Troca o texto do botão
+        botao.innerHTML = "Voltar";
 
+        // Adiciona uma classe CSS no body
+        document.body.classList.add("sc_giovane_heroi");
 
-.sc_giovane_card:hover{
-    transform: translateY(-5px);
-}
+        // Percorre todos os cards
+        cards.forEach(function(card){
 
+            // Adiciona classe de herói em cada card
+            card.classList.add("sc_giovane_card_heroi");
 
-.sc_giovane_card_principal{
+        });
 
-    grid-column: 1 / -1;
+        // Ativa o modo herói
+        sc_giovane_modoHeroi = true;
 
-    max-width: 500px;
+    }else{
 
-    width: 100%;
+        // Volta o nome original
+        nome.innerHTML = "Giovane";
 
-    padding: 30px;
+        // Volta a descrição original
+        descricao.innerHTML =
+        "Sou estudante de desenvolvimento web e gosto de tecnologia, jogos e futebol.";
 
-    margin-bottom: 10px;
-}
+        // Volta idade
+        idade.innerHTML = "26 anos";
 
+        // Volta time
+        time.innerHTML = "Corinthians";
 
-.sc_giovane_card_principal img{
+        // Volta comida
+        comida.innerHTML = "Churrasco";
 
-    width: 170px;
+        // Volta hobby
+        hobby.innerHTML = "Jogar videogame";
 
-    height: 170px;
+        // Volta filme
+        filme.innerHTML = "Interestelar";
 
-    border-radius: 50%;
+        // Volta imagem original
+        foto.src = "eu.jpeg";
 
-    object-fit: cover;
+        // Volta texto do botão
+        botao.innerHTML = "Transformar!";
 
-    border: 4px solid #2563eb;
+        // Remove classe do body
+        document.body.classList.remove("sc_giovane_heroi");
 
-    margin-bottom: 15px;
-}
+        // Percorre todos os cards
+        cards.forEach(function(card){
 
+            // Remove classe de herói
+            card.classList.remove("sc_giovane_card_heroi");
 
-#sc_giovane_nome{
+        });
 
-    font-size: 46px;
-
-    margin-bottom: 10px;
-
-    color: #1e3a8a;
-}
-
-
-#sc_giovane_descricao{
-
-    font-size: 18px;
-
-    line-height: 1.5;
-
-    max-width: 420px;
-
-    margin: 0 auto;
-
-    color: #90e0ef;
-}
-
-
-.sc_giovane_card:not(.sc_giovane_card_principal){
-
-    width: 200px;
-
-    min-height: 110px;
-}
-
-
-.sc_giovane_card h2{
-
-    font-size: 20px;
-
-    margin-bottom: 8px;
-
-    color: #1e3a8a;
-}
-
-
-.sc_giovane_card p{
-
-    font-size: 16px;
-
-    margin: 0;
-
-    color: #374151;
-}
-
-
-.sc_giovane_container .sc_giovane_card:last-child{
-
-    grid-column: 1 / -1;
-
-    justify-self: center;
-
-    width: 200px;
-}
-
-
-#sc_giovane_btn_transformar{
-
-    margin-top: 35px;
-
-    padding: 16px 35px;
-
-    border: none;
-
-    border-radius: 12px;
-
-    background: linear-gradient(to right, #2563eb, #1d4ed8);
-
-    color: white;
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-    box-shadow: 0px 6px 15px rgba(37,99,235,0.4);
-}
-
-
-#sc_giovane_btn_transformar:hover{
-    transform: scale(1.05);
-}
-
-
-.sc_giovane_heroi{
-
-    background: linear-gradient(to right, #111827, #000000);
-
-    transition: background 0.5s ease;
-}
-
-
-.sc_giovane_card_heroi{
-
-    background: linear-gradient(to bottom, #1f2937, #111827);
-
-    border: 2px solid #00ffcc;
-
-    box-shadow: 0px 8px 20px rgba(0,255,204,0.25);
-}
-
-
-.sc_giovane_card_heroi h1,
-.sc_giovane_card_heroi h2{
-
-    color: #00ffcc;
-}
-
-.sc_giovane_card_heroi p{
-
-    color: #e5e7eb;
-}
-
-
-.sc_giovane_heroi #sc_giovane_nome{
-    color: #00ffcc;
-}
-
-
-@media(max-width: 768px){
-
-    .sc_giovane_container{
-
-        grid-template-columns: 1fr;
-
-        justify-items: center;
-
-        gap: 15px;
+        // Desativa modo herói
+        sc_giovane_modoHeroi = false;
     }
 
-    .sc_giovane_card:not(.sc_giovane_card_principal){
-
-        width: 100%;
-
-        max-width: 420px;
-    }
-
-    .sc_giovane_card_principal{
-
-        max-width: 420px;
-    }
-
-    #sc_giovane_nome{
-        font-size: 32px;
-    }
-
-    .sc_giovane_card_principal img{
-        width: 140px;
-        height: 140px;
-    }
 }
