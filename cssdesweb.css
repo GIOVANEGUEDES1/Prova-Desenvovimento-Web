@@ -1,133 +1,387 @@
-// Variável que controla se está no modo herói
-// false = modo normal
-// true = modo herói
+/* =========================
+   ESTILIZAÇÃO GERAL DA PÁGINA
+========================= */
+body{
 
-let sc_giovane_modoHeroi = false;
+    /* Remove a margem padrão do navegador */
+    margin: 0;
 
+    /* Espaçamento interno da página */
+    padding: 40px;
 
+    /* Define a fonte principal do site */
+    font-family: Arial, Helvetica, sans-serif;
 
-// Função executada ao clicar no botão
-function sc_giovane_transformar(){
+    /* Ativa o Flexbox */
+    display: flex;
 
-    // Pega o elemento do nome pelo ID
-    const nome = document.getElementById("sc_giovane_nome");
+    /* Organiza os elementos em coluna */
+    flex-direction: column;
 
-    // Pega a descrição
-    const descricao = document.getElementById("sc_giovane_descricao");
+    /* Centraliza os elementos horizontalmente */
+    align-items: center;
 
-    // Pega a idade
-    const idade = document.getElementById("sc_giovane_idade");
+    /* Fundo com degradê azul claro */
+    background: linear-gradient(to right, #dbeafe, #f0f9ff);
 
-    // Pega o time
-    const time = document.getElementById("sc_giovane_time");
+    /* Anima suavemente mudanças de fundo e cor */
+    transition: background 0.5s ease, color 0.5s ease;
 
-    // Pega a comida favorita
-    const comida = document.getElementById("sc_giovane_comida");
-
-    // Pega o hobby
-    const hobby = document.getElementById("sc_giovane_hobby");
-
-    // Pega o filme favorito
-    const filme = document.getElementById("sc_giovane_filme");
-
-    // Pega a imagem
-    const foto = document.getElementById("sc_giovane_foto");
-
-    // Pega o botão
-    const botao = document.getElementById("sc_giovane_btn_transformar");
-
-    // Seleciona TODOS os cards com essa classe
-    const cards = document.querySelectorAll(".sc_giovane_card");
+    /* Tamanho padrão do texto */
+    font-size: 18px;
+}
 
 
-    // Verifica se NÃO está no modo herói
-    if(sc_giovane_modoHeroi === false){
+/* =========================
+   CONTAINER DOS CARDS
+========================= */
+.sc_giovane_container{
 
-        // Troca o nome
-        nome.innerHTML = "Homem-Aranha";
+    /* Usa CSS Grid */
+    display: grid;
 
-        // Troca a descrição
-        descricao.innerHTML =
-        "Herói da Marvel com força sobre-humana, sentidos aguçados e habilidade de escalar paredes.";
+    /* Cria 2 colunas de 200px */
+    grid-template-columns: repeat(2, 200px);
 
-        // Troca a idade
-        idade.innerHTML = "26 anos";
+    /* Espaço entre os cards */
+    gap: 60px;
 
-        // Troca o time
-        time.innerHTML = "Vingadores";
+    /* Centraliza o grid */
+    justify-content: center;
 
-        // Troca a comida
-        comida.innerHTML = "Comida Japonesa";
+    /* Ocupa toda a largura disponível */
+    width: 100%;
 
-        // Troca o hobby
-        hobby.innerHTML = "Salvar Nova York";
+    /* Limita a largura máxima */
+    max-width: 800px;
+}
 
-        // Troca o filme
-        filme.innerHTML = "Spider-Man: No Aranhaverso";
 
-        // Troca a imagem
-        foto.src = "heroi.jpg";
+/* =========================
+   CARD PADRÃO
+========================= */
+.sc_giovane_card{
 
-        // Troca o texto do botão
-        botao.innerHTML = "Voltar";
+    /* Fundo branco */
+    background: white;
 
-        // Adiciona uma classe CSS no body
-        document.body.classList.add("sc_giovane_heroi");
+    /* Espaçamento interno */
+    padding: 20px;
 
-        // Percorre todos os cards
-        cards.forEach(function(card){
+    /* Bordas arredondadas */
+    border-radius: 18px;
 
-            // Adiciona classe de herói em cada card
-            card.classList.add("sc_giovane_card_heroi");
+    /* Centraliza o texto */
+    text-align: center;
 
-        });
+    /* Sombra do card */
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.12);
 
-        // Ativa o modo herói
-        sc_giovane_modoHeroi = true;
+    /* Animação suave */
+    transition: transform 0.3s ease;
+}
 
-    }else{
 
-        // Volta o nome original
-        nome.innerHTML = "Giovane";
+/* Efeito ao passar o mouse */
+.sc_giovane_card:hover{
 
-        // Volta a descrição original
-        descricao.innerHTML =
-        "Sou estudante de desenvolvimento web e gosto de tecnologia, jogos e futebol.";
+    /* Move o card para cima */
+    transform: translateY(-5px);
+}
 
-        // Volta idade
-        idade.innerHTML = "26 anos";
 
-        // Volta time
-        time.innerHTML = "Corinthians";
+/* =========================
+   CARD PRINCIPAL
+========================= */
+.sc_giovane_card_principal{
 
-        // Volta comida
-        comida.innerHTML = "Churrasco";
+    /* Faz o card ocupar todas as colunas */
+    grid-column: 1 / -1;
 
-        // Volta hobby
-        hobby.innerHTML = "Jogar videogame";
+    /* Largura máxima */
+    max-width: 500px;
 
-        // Volta filme
-        filme.innerHTML = "Interestelar";
+    /* Ocupa toda largura disponível */
+    width: 100%;
 
-        // Volta imagem original
-        foto.src = "eu.jpeg";
+    /* Espaçamento interno maior */
+    padding: 30px;
 
-        // Volta texto do botão
-        botao.innerHTML = "Transformar!";
+    /* Espaço abaixo do card */
+    margin-bottom: 10px;
+}
 
-        // Remove classe do body
-        document.body.classList.remove("sc_giovane_heroi");
 
-        // Percorre todos os cards
-        cards.forEach(function(card){
+/* =========================
+   IMAGEM DO CARD PRINCIPAL
+========================= */
+.sc_giovane_card_principal img{
 
-            // Remove classe de herói
-            card.classList.remove("sc_giovane_card_heroi");
+    /* Largura da imagem */
+    width: 170px;
 
-        });
+    /* Altura da imagem */
+    height: 170px;
 
-        // Desativa modo herói
-        sc_giovane_modoHeroi = false;
+    /* Deixa a imagem redonda */
+    border-radius: 50%;
+
+    /* Ajusta a imagem sem deformar */
+    object-fit: cover;
+
+    /* Borda azul */
+    border: 4px solid #2563eb;
+
+    /* Espaço abaixo da imagem */
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   NOME PRINCIPAL
+========================= */
+#sc_giovane_nome{
+
+    /* Tamanho grande do texto */
+    font-size: 46px;
+
+    /* Espaço abaixo */
+    margin-bottom: 10px;
+
+    /* Cor azul escuro */
+    color: #1e3a8a;
+}
+
+
+/* =========================
+   DESCRIÇÃO PRINCIPAL
+========================= */
+#sc_giovane_descricao{
+
+    /* Tamanho do texto */
+    font-size: 18px;
+
+    /* Espaçamento entre linhas */
+    line-height: 1.5;
+
+    /* Largura máxima */
+    max-width: 420px;
+
+    /* Centraliza horizontalmente */
+    margin: 0 auto;
+
+    /* Cor do texto */
+    color: #90e0ef;
+}
+
+
+/* =========================
+   CARDS SECUNDÁRIOS
+========================= */
+.sc_giovane_card:not(.sc_giovane_card_principal){
+
+    /* Largura fixa */
+    width: 200px;
+
+    /* Altura mínima */
+    min-height: 110px;
+}
+
+
+/* =========================
+   TÍTULOS DOS CARDS
+========================= */
+.sc_giovane_card h2{
+
+    /* Tamanho do título */
+    font-size: 20px;
+
+    /* Espaço abaixo */
+    margin-bottom: 8px;
+
+    /* Cor azul escuro */
+    color: #1e3a8a;
+}
+
+
+/* =========================
+   PARÁGRAFOS DOS CARDS
+========================= */
+.sc_giovane_card p{
+
+    /* Tamanho do texto */
+    font-size: 16px;
+
+    /* Remove margens padrão */
+    margin: 0;
+
+    /* Cor do texto */
+    color: #374151;
+}
+
+
+/* =========================
+   ÚLTIMO CARD CENTRALIZADO
+========================= */
+.sc_giovane_container .sc_giovane_card:last-child{
+
+    /* Faz ocupar todas as colunas */
+    grid-column: 1 / -1;
+
+    /* Centraliza o card */
+    justify-self: center;
+
+    /* Largura fixa */
+    width: 200px;
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
+#sc_giovane_btn_transformar{
+
+    /* Espaço acima */
+    margin-top: 35px;
+
+    /* Espaçamento interno */
+    padding: 16px 35px;
+
+    /* Remove borda */
+    border: none;
+
+    /* Bordas arredondadas */
+    border-radius: 12px;
+
+    /* Fundo em degradê */
+    background: linear-gradient(to right, #2563eb, #1d4ed8);
+
+    /* Cor do texto */
+    color: white;
+
+    /* Tamanho do texto */
+    font-size: 18px;
+
+    /* Texto em negrito */
+    font-weight: bold;
+
+    /* Cursor de clique */
+    cursor: pointer;
+
+    /* Transição suave */
+    transition: 0.3s;
+
+    /* Sombra azul */
+    box-shadow: 0px 6px 15px rgba(37,99,235,0.4);
+}
+
+
+/* Efeito ao passar o mouse no botão */
+#sc_giovane_btn_transformar:hover{
+
+    /* Aumenta levemente */
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   MODO HERÓI
+========================= */
+.sc_giovane_heroi{
+
+    /* Fundo escuro */
+    background: linear-gradient(to right, #111827, #000000);
+
+    /* Transição suave */
+    transition: background 0.5s ease;
+}
+
+
+/* =========================
+   CARD NO MODO HERÓI
+========================= */
+.sc_giovane_card_heroi{
+
+    /* Fundo escuro em degradê */
+    background: linear-gradient(to bottom, #1f2937, #111827);
+
+    /* Borda verde neon */
+    border: 2px solid #00ffcc;
+
+    /* Sombra neon */
+    box-shadow: 0px 8px 20px rgba(0,255,204,0.25);
+}
+
+
+/* Títulos no modo herói */
+.sc_giovane_card_heroi h1,
+.sc_giovane_card_heroi h2{
+
+    /* Cor verde neon */
+    color: #00ffcc;
+}
+
+
+/* Texto no modo herói */
+.sc_giovane_card_heroi p{
+
+    /* Cor clara */
+    color: #e5e7eb;
+}
+
+
+/* Nome principal no modo herói */
+.sc_giovane_heroi #sc_giovane_nome{
+
+    /* Cor verde neon */
+    color: #00ffcc;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media(max-width: 768px){
+
+    /* Ajustes do container em telas menores */
+    .sc_giovane_container{
+
+        /* Apenas 1 coluna */
+        grid-template-columns: 1fr;
+
+        /* Centraliza os itens */
+        justify-items: center;
+
+        /* Menor espaço entre cards */
+        gap: 15px;
     }
 
+    /* Cards secundários responsivos */
+    .sc_giovane_card:not(.sc_giovane_card_principal){
+
+        /* Ocupa largura total */
+        width: 100%;
+
+        /* Limite máximo */
+        max-width: 420px;
+    }
+
+    /* Card principal responsivo */
+    .sc_giovane_card_principal{
+
+        max-width: 420px;
+    }
+
+    /* Nome menor no celular */
+    #sc_giovane_nome{
+
+        font-size: 32px;
+    }
+
+    /* Imagem menor no celular */
+    .sc_giovane_card_principal img{
+
+        width: 140px;
+        height: 140px;
+    }
 }
