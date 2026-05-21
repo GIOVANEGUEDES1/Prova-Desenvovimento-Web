@@ -1,54 +1,100 @@
 <!DOCTYPE html>
+<!-- Define que o documento usa HTML5 -->
+
 <html lang="pt-BR">
+<!-- Tag principal da página -->
+<!-- lang="pt-BR" informa que o idioma é português do Brasil -->
+
 <head>
+
     <meta charset="UTF-8">
+    <!-- Permite usar caracteres especiais e acentos -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Faz a página funcionar corretamente em celulares e tablets -->
 
     <title>Alter Ego Web - Giovane</title>
+    <!-- Título que aparece na aba do navegador -->
 
     <link rel="stylesheet" href="cssdesweb.css">
+    <!-- Conecta o arquivo CSS externo -->
+
 </head>
 
 <body>
+<!-- Tudo dentro do body aparece visualmente na página -->
 
     <div class="sc_giovane_container">
+    <!-- Container principal que agrupa todos os cards -->
 
         <div class="sc_giovane_card sc_giovane_card_principal">
+        <!-- Card principal -->
+        <!-- Possui duas classes:
+             sc_giovane_card = estilo geral
+             sc_giovane_card_principal = estilo especial -->
 
             <img id="sc_giovane_foto" src="eu.jpeg" alt="Foto de Giovane">
+            <!-- Exibe a imagem -->
+            <!-- id = identificador único -->
+            <!-- src = caminho da imagem -->
+            <!-- alt = texto alternativo -->
 
             <h1 id="sc_giovane_nome">Giovane</h1>
+            <!-- Título principal da página -->
 
             <p id="sc_giovane_descricao">
                 Sou estudante de desenvolvimento web e gosto de filmes de super-heróis.
             </p>
+            <!-- Parágrafo com descrição -->
 
         </div>
 
 
         <div class="sc_giovane_card">
+        <!-- Card de informação -->
+
             <h2>Idade</h2>
+            <!-- Subtítulo -->
+
             <p id="sc_giovane_idade">26 anos</p>
+            <!-- Informação da idade -->
+
         </div>
 
         <div class="sc_giovane_card">
+        <!-- Card de informação -->
+
             <h2>Time do coração</h2>
+
             <p id="sc_giovane_time">Corinthians</p>
+
         </div>
 
         <div class="sc_giovane_card">
+        <!-- Card de informação -->
+
             <h2>Comida favorita</h2>
+
             <p id="sc_giovane_comida">Churrasco</p>
+
         </div>
 
         <div class="sc_giovane_card">
+        <!-- Card de informação -->
+
             <h2>Hobby</h2>
+
             <p id="sc_giovane_hobby">Tirar fotos</p>
+
         </div>
 
         <div class="sc_giovane_card">
+        <!-- Card de informação -->
+
             <h2>Filme favorito</h2>
+
             <p id="sc_giovane_filme">Constantine</p>
+
         </div>
 
     </div>
@@ -56,8 +102,12 @@
     <button id="sc_giovane_btn_transformar" onclick="sc_giovane_transformar()">
         Transformar!
     </button>
+    <!-- Botão -->
+    <!-- onclick executa uma função JavaScript quando clicado -->
 
     <script src="provadesweb.js"></script>
+    <!-- Conecta o arquivo JavaScript externo -->
 
 </body>
+
 </html>
